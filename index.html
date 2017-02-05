@@ -3,101 +3,65 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Trigger Clicked</title>
+  <title>Psychic Game</title>
 
   <!-- Added link to the jQuery Library -->
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://bootswatch.com/sandstone/bootstrap.css">
 
 </head>
 
 <body>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
 
-  <h1>The Psychic Game</h1>
-  <h3 id="head">Guess what letter I'm thinking of</h3>
-  <h3 id="wins">Wins: </h3><div id="totalWin"></div>
-  <h3 id="Loses">Loses: </h3><div id="totalLoses"></div>
-  <h3 id="guessesLeft">Guesses Left: </h3><div id="totalGuess"></div>
-  <h3 id="guessesSoFar">Your Guesses so far: </h3><div id="lettersGuessed"></div>
-  <form id="user">
-  <input type="text" id="userInput" onkeyup="psychicGame.getUserInput()">
-  </form>
+      <h1>The Psychic Game</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 id="head">Guess what letter I'm thinking of</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 id="wins">Wins: </h3>
+    </div>
+    <div class="col-sm-6">
+      <div id="totalWin"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 id="Loses">Loses: </h3>
+    </div>
+    <div class="col-sm-6">
+      <div id="totalLoses">   </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 id="guessesLeft">Guesses Left: </h3>
+    </div>
+    <div class="col-sm-6">
+      <div id="totalGuess"> </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 id="guessesSoFar">Your Guesses so far: </h3>
+    </div>
+    <div class="col-sm-6">
+      <div id="lettersGuessed">  </div>
+    </div>
+  
+  <!-- closing the container div -->
+  </div>
   
     
-<script type="text/javascript">
-var wins = 0;
-      var loses = 0;
-      var guessLeft = 9;
-      var randLetter;
-      var userGuess;
+<script type="text/javascript" src="assets/javascript/game.js">
 
-      var targetDiv = document.getElementById("totalGuess");
-
-            targetDiv.innerHTML = guessLeft;
-      
-      var psychicGame = {
-
-      getUserInput: function()
-      {
-        var userInput = document.getElementById("userInput").value;
-        console.log("user input " + userInput);
-        $("#lettersGuessed").append(userInput);        
-
-        psychicGame.getLetter();
-        userGuess = userInput;
-        document.getElementById("user").reset();
-      },
-
-      getLetter: function(){
-        var letterArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-        // radomly choose a letter from the "letterArray" array
-        randno = Math.floor(Math.random() * letterArray.length);
-        randLetter = letterArray[randno];
-        guessLeft--;
-        console.log("you have " + guessLeft + "guesses left");
-        var targetDiv = document.getElementById("totalGuess");
-
-            targetDiv.innerHTML = guessLeft;
-        
-
-        if (guessLeft > 0)
-        {
-          console.log(letterArray[randno]);
-          psychicGame.compareLetter();
-        }
-        else if (guessLeft === 0){
-          wins = 0;
-          loses = 0;
-          guessLeft = 9;
-          document.getElementById("user").reset();
-          return;
-        }
-      },
-
-      compareLetter: function(){
-
-        if (userGuess == userInput){
-            win++
-            console.log("wins = " + wins);
-            var targetDiv = document.getElementById("totalWin");
-
-      targetDiv.innerHTML = wins;
-
-      //targetDiv.appendChild(wins);
-          }
-          else{
-            loses++
-            console.log("loses = " + loses);
-            var targetDiv = document.getElementById("totalLoses");
-
-            targetDiv.innerHTML = loses;
-
-            //targetDiv.appendChild(loses);
-          }
-      }
-
-      // ...
-};
 
 </script>
 
