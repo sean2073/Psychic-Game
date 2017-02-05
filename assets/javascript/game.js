@@ -16,14 +16,15 @@
       // get a random letter from the LetterArray 
       var randomGuess = Math.floor(Math.random() * letterArray.length);
 
+      // Keep track of how many guesses the user has
       updateGuesses = function()
       {
         console.log("in updateGuesses");
-        document.querySelector("#totalGuess").innerHTML = guessLeft;
+        document.querySelector("#totalGuess").innerHTML = "<h3>" + guessLeft + "</h3>";
         console.log(guessLeft);
       };
-      //updateGuesses();
-
+      
+      //randomly generate a letter from the array
 
       var getComputerGuess = function()
       {
@@ -34,13 +35,13 @@
         console.log("The computer chose: " + computerGuess);
         
       };
-      //getComputerGuess();
-
+      
+      // Display all of the letters guessed
       var lettersGuessed = function() 
       {
         console.log("in lettersGuessed function");
         // Display the letters guessed by the user
-        document.querySelector('#lettersGuessed').innerHTML = guessedLetters.join(', ');
+        document.querySelector('#lettersGuessed').innerHTML = "<h3>" + guessedLetters.join(', ') + "</h3>";
       };
 
       var resetFunction = function()
@@ -54,7 +55,8 @@
       getComputerGuess();
       updateGuesses();
       lettersGuessed();
-      }
+      };
+      //this below will execute first
       getComputerGuess();
       updateGuesses();
 
@@ -70,17 +72,18 @@
         console.log("userInput: " + userInput);
         console.log("computer's: " + computerGuess);
 
+             // we will add to wins and we'll update the html to display the wins 
         if (guessLeft > 0){
             if (userInput == computerGuess){
                 wins++;
-                document.querySelector("#totalWin").innerHTML = wins;
+                document.querySelector('#totalWin').innerHTML = "<h3>" + wins + "</h3>";
                 console.log("wins = : " + wins);
                 resetFunction();
             }
         }else if(guessLeft == 0){
-            // Then we will loss and we'll update the html to display the loss 
+            // we will add to loss and we'll update the html to display the loss 
             loses++;
-            document.querySelector("#totalLoses").innerHTML = loses;
+            document.querySelector('#totalLoses').innerHTML = "<h3>" + loses + "</h3>";
             console.log("loses = : " + loses);
             // Then we'll call the reset. 
             resetFunction();
@@ -89,18 +92,3 @@
 
 
 
-/*
-      getLetter: function(){
-        var letterArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-        // radomly choose a letter from the "letterArray" array
-        randno = Math.floor(Math.random() * letterArray.length);
-        randLetter = letterArray[randno];
-        guessLeft--;
-        console.log("you have " + guessLeft + "guesses left");
-        var targetDiv = document.getElementById("totalGuess");
-*/
-    //  }
-
-      // ...
-//};
